@@ -1,31 +1,67 @@
 package me.sandbox.cats.monad
 
-import cats.data.{OptionT, Reader, State, Writer}
-import cats.instances.either._
-import cats.instances.int._
-import cats.instances.list._
-import cats.syntax.eq.catsSyntaxEq
-import cats.syntax.flatMap.toFlatMapOps
-import cats.syntax.functor.toFunctorOps
-import cats.{Eval, Id, Monad, MonadError}
 
-import scala.language.higherKinds // Enable the use of higher-kinded types, like F[_].
+
+object MonadEx extends App{
+  Option(Option(1)).flatten
+  Option(None).flatten
+  List(List(1), List(2, 3)).flatten
+
+  import cats._
+  import cats.implicits._
+
+  Monad[Option].pure(42)
+
+  import cats._
+  import cats.implicits._
+
+  Monad[List].flatMap(List(1, 2, 3))(x ⇒ List(x, x))
+
+  import cats._
+  import cats.implicits._
+
+  Monad[Option].ifM(Option(true))(Option("truthy"), Option("falsy"))
+  Monad[List].ifM(List(true, false, true))(List(1, 2), List(3, 4))
+
+  import cats.implicits._
+
+  // optionTMonad[List].pure(42)
+
+}
+
+//import scala.language.higherKinds // Enable the use of higher-kinded types, like F[_].
+/**
+  * The monad type class is cats.Monad. Monad extends two other type classes: FlatMap,
+  * which provides the flatMap method, and Applicative, which provides pure. Applicative
+  * also extends Functor, which gives every Monad a map method as we saw in the exercise
+  * above. We’ll discuss Applicatives in Chapter 6.
+  *
+  *
+  * Monad <- Applicative gives pure <- Functor gives map
+  *       <- flatMap
+  *
+  *       todo first a better place for the piece of cheatsheet above
+  */
+
 object MonadNotes extends App {
   // FlatMap allow us to sequence computations inside a context...
   // However, unlike map, they are aware of inner contexts.
+  /*
+
+
   val flatMapped1 = List(1, 2, 3).flatMap(x => List.fill(x)(x)) // Returns a list of x elements, each of value x.
-  println(s"List(1, 2, 3).flatMap(x => List.fill(x)(x)) = ${flatMapped1}")
+  println(s"List(1, 2, 3).flatMap(x => List.fill(x)(x)) = $flatMapped1")
 
   // For comprehension can be used to simplify complex flatMap computations.
   val flatMapped2 = for {
     x <- List(1, 2, 3)
     y <- List.fill(x)(x)
   } yield y
-  println(s"for (x <- List(1, 2, 3); y <- List.fill(x)(x)) yield y = ${flatMapped2}")
+  println(s"for (x <- List(1, 2, 3); y <- List.fill(x)(x)) yield y = $flatMapped2")
 
   // This common behavior is encapsulated in the Monad[F[_]] type class.
   val assertion1 = List(1, 2, 3).flatMap(x => List.fill(x)(x)) === Monad[List].flatMap(List(1, 2, 3))(x => List.fill(x)(x))
-  println(s"List(1, 2, 3).flatMap(x => List.fill(x)(x)) === Monad[List].flatMap(List(1, 2, 3))(x => List.fill(x)(x)) is ${assertion1}")
+  println(s"List(1, 2, 3).flatMap(x => List.fill(x)(x)) === Monad[List].flatMap(List(1, 2, 3))(x => List.fill(x)(x)) is $assertion1")
 
   // Monad laws!
   // A correct implementation of a Functor for some type F[_] must satisfy three laws:
@@ -145,7 +181,7 @@ object MonadNotes extends App {
   // which allow us to read and modify a shared state trough computations.
   type Stack[A] = List[A]
   type CalcState[R] = State[Stack[R], R]
- /* // todo
+  // todo
  def evalOne[R: Fractional](symbol: String): CalcState[R] = symbol match {
     case "+" => operator(_ + _)
     case "-" => operator(_ - _)
@@ -167,7 +203,6 @@ object MonadNotes extends App {
   def evalInput[R: Fractional](input: String): R =
     evalAll(symbols = input.split(" ")).runA(Nil).value
   println(s"evalInput('5 1 2 + 3 * /') = ${evalInput[Double]("5 1 2 + 3 * /")}")
-*/
   // Monad Transformers!
   // Transformers allow us to compose two monads together.
   // However, since is impossible to compose any two monads generally,
@@ -181,4 +216,9 @@ object MonadNotes extends App {
     b <- eitherOptionB
   } yield a + b
   println(s"Given fa = OptionT.pure[Either[String, ?]](10), fb = OptionT.pure[Either[String, ?]](40)\t->\tfor (a <- fa; b <- fb) yield a + b = ${flatMapped9.value}")
+
+
+  */
+
 }
+

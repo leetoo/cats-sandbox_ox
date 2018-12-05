@@ -6,7 +6,7 @@ import cats.instances.list._
 import cats.instances.option._
 import cats.syntax.foldable._
 import cats.syntax.option._
-import cats.syntax.traverse._ // Provides the sequence and traverse methods.
+ import cats.syntax.traverse._ // Provides the sequence and traverse methods.
 object TraverseNotes extends App {
   // Folding!
   // We can use the foldLeft and foldRight methods,
@@ -57,4 +57,9 @@ object TraverseNotes extends App {
     *
     * Vector [ValidatedNel[Error,A ] ] => ValidatedNel[Error,Vector ] ]
     */
+
+
+
+
+
 }

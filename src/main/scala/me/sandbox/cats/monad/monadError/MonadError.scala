@@ -65,7 +65,9 @@ object MonoidNotesEx extends App {
     *
     * @tparam F is the type of the monad
     * @tparam E is the type of the error contained within F
+    *
     */
+
   trait SimpleMonadError[F[_], E] extends Monad[F] {
     // Lift an error into the 'F' context:
     def raiseError[A](a: E): F[A]
@@ -76,3 +78,4 @@ object MonoidNotesEx extends App {
     def ensure[A](fa: F[A])(e: E)(f: A => Boolean): F[A]
   }
 }
+
