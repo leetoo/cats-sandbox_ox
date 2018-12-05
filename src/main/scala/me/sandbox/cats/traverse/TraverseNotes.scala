@@ -49,4 +49,12 @@ object TraverseNotes extends App {
   // before sequencing the effect with the collection, you can use the traverse method.
   val traversed = List(1, 3, 5).traverse(n => if (n % 2 == 0) none[Int] else n.some)
   println(s"List(1, 3, 5).traverse(n => if (n % 2 == 0) None else Some(n)) = ${traversed}")
+  /**
+    * with traverse type  class we can do for example
+    * List[Future[A] ] = > Future[List[A] ]
+    * Stream[Option[A ] ] => Option [String [A ]  ]
+    * Either [ E, IO[A ] ] => IO[Either [E, A ] ]
+    *
+    * Vector [ValidatedNel[Error,A ] ] => ValidatedNel[Error,Vector ] ]
+    */
 }
