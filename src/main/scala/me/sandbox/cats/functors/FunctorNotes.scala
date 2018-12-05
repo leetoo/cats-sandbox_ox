@@ -146,4 +146,6 @@ object FunctorNotes extends App {
   val encoded = IntCodec.encode(10)
   val decoded = IntCodec.decode(encoded)
   println(s"Given IntCodec = Codec[String].imap(s => s.toInt, x => x.toString)\t->\tIntCodec.decode(IntCodec.encode(10)) = ${decoded}")
+
+
 }
