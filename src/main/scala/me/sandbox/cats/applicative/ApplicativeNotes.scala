@@ -1,18 +1,22 @@
+/*
 package me.sandbox.cats.applicative
 
 import cats.Applicative
-import cats.data.ValidatedNec
+import cats.data._
 import cats.instances.either._
 import cats.instances.option._
 import cats.syntax.apply._
 import cats.syntax.option._
 import cats.syntax.validated._ // Provides the validated smart constructors.
+import cats.implicits._
+import cats.syntax._
 object ApplicativeNotes extends App {
   // Applicative allow us to join values inside a context,
-  // in a less restrictive way than Monad's flatMap.
+  // in a less restrictive way than Monad's aflatMap.
   // For example, the product method takes a F[A] and a F[B]
   // and returns a F[(A, B)].
   // However, no sequential order is guaranteed - unlike flatMap.
+
   val fa = 3.some
   val fb = "Hello, World!".some
   val fab = Applicative[Option[?]].product(fa, fb)
@@ -59,3 +63,4 @@ object ApplicativeNotes extends App {
     )
   println(s"Applicative[Validated[Chain[String], ?]].tuple3(Invalid('Error 1'), Valid(10), Invalid('Error 2')) = ${validatedErrors}")
 }
+*/

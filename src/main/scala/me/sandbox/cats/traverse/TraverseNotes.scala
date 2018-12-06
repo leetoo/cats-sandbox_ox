@@ -1,12 +1,14 @@
 package me.sandbox.cats.traverse
 
-import cats.Traverse
-import cats.instances.int._
-import cats.instances.list._
-import cats.instances.option._
-import cats.syntax.foldable._
-import cats.syntax.option._
- import cats.syntax.traverse._ // Provides the sequence and traverse methods.
+import cats.Traverse // Import the Traverse type class.
+import cats.instances.int._ // Brings the implicit Monoid[Int] instance to scope.
+import cats.instances.list._ // Brings the implicit Traverse[List[_]] instance to scope.
+import cats.instances.option._ // Brings the implicit Applicative[Option[_]] instance to scope.
+import cats.syntax.foldable._ // Provides the combineAll and foldMap methods.
+import cats.syntax.option._ // Provides the option smart constructors.
+import cats.syntax.traverse._ // Provides the sequence and traverse methods.
+
+
 object TraverseNotes extends App {
   // Folding!
   // We can use the foldLeft and foldRight methods,
