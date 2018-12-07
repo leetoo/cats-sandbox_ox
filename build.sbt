@@ -1,4 +1,4 @@
-/*
+
 name := "cats-sandbox"
 version := "0.0.1-SNAPSHOT"
 
@@ -20,7 +20,6 @@ scalacOptions ++= Seq(
 //libraryDependencies += "org.typelevel" %% "cats-core" % "0.9.0"
 
 addCompilerPlugin("org.spire-math" %% "kind-projector" % "0.9.3")
-*/
 
 import Dependencies._
 

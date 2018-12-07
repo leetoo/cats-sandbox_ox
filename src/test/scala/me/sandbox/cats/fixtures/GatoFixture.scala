@@ -1,6 +1,6 @@
 package me.sandbox.cats.fixtures
 
-import me.sandbox.cats.monoids.usecases.Gato
+import me.sandbox.cats.part01monoids.usecases.calculator.Gato
 
 trait GatoFixture {
 

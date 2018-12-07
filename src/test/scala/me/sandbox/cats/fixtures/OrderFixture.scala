@@ -1,6 +1,6 @@
 package me.sandbox.cats.fixtures
 
-import me.sandbox.cats.monoids.usecases.Order
+import me.sandbox.cats.part01monoids.usecases.Order
 
 trait OrderFixture {
 

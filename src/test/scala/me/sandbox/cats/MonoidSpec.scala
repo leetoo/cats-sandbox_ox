@@ -1,7 +1,7 @@
 package me.sandbox.cats
 import me.sandbox.cats.fixtures.OrderFixture
-import me.sandbox.cats.monoids.usecases.Order
-import me.sandbox.cats.monoids.usecases.calculator.Calculator
+import me.sandbox.cats.part01monoids.usecases.Order
+import me.sandbox.cats.part01monoids.usecases.calculator.Calculator
 import org.scalatest.{MustMatchers, WordSpec}
 
 
@@ -52,7 +52,7 @@ class MonoidSpec extends WordSpec with MustMatchers with OrderFixture {
 
     "work on Order" in {
       // TODO 03: add the implicit monoid for Orders in the order companion object
-      import me.sandbox.cats.monoids.usecases.calculator.Calculator.monoid
+      import me.sandbox.cats.part01monoids.usecases.calculator.Calculator.monoid
       Monoid[Order].combine(
 
         orderCosting70,
