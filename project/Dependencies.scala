@@ -7,4 +7,10 @@ object Dependencies {
 
 
   lazy val scalaCheck = "org.scalacheck" %% "scalacheck" % "1.13.+"
+
+
+
+
+
+
 }

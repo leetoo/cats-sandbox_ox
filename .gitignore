@@ -77,5 +77,5 @@ project/plugins/project/
 .idea/scala_compiler.xml
 .idea/vcs.xml
 project/project/
-src/main/scala/me/sandbox/democats/group05monad/effectful_monad/
-src/main/scala/me/sandbox/democats/group05monad/transformers/
+src/main/scala/me/sandbox/democats/adt/group05monad/effectful_monad/
+src/main/scala/me/sandbox/democats/adt/group05monad/transformers/

@@ -1,6 +1,6 @@
 package me.sandbox.democats
 
-import me.sandbox.democats.group09validated._
+import me.sandbox.democats.adt.group09validated._
 import org.scalatest.{MustMatchers, WordSpec}
 
 sealed abstract class Validated[+E, +A]
@@ -9,7 +9,7 @@ class ValidatedScalaExSpec extends WordSpec with MustMatchers {
 
 
   "ValidatedScalaExSpec" must {
-    import me.sandbox.democats.group09validated.ValidatedScalaEx._
+    import me.sandbox.democats.adt.group09validated.ValidatedScalaEx._
 
     "ValidatedScalaExSpec simple operations " in {
 

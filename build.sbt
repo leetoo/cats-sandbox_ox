@@ -19,6 +19,17 @@ scalacOptions ++= Seq(
 // lazy val scalaTest = "org.scalatest" %% "scalatest" % "3.0.3"
 //libraryDependencies += "org.typelevel" %% "cats-core" % "0.9.0"
 
+
+val circeVersion = "0.10.0"
+
+libraryDependencies ++= Seq(
+  "io.circe" %% "circe-core",
+  "io.circe" %% "circe-generic",
+  "io.circe" %% "circe-parser"
+).map(_ % circeVersion)
+
+libraryDependencies += "io.circe" %% "circe-optics" % circeVersion
+
 addCompilerPlugin("org.spire-math" %% "kind-projector" % "0.9.3")
 
 import Dependencies._
